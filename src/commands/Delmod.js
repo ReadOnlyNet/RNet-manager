@@ -22,17 +22,7 @@ class Delmod extends Command {
 
 		if (!role) {
 			user = this.resolveUser(message.channel.guild, args.join(' '));
-			if (!user) {
-				if (guildConfig.mods && guildConfig.mods.includes(args[0])) {
-					const index = guildConfig.mods.indexOf(args[0]);
-					if (index !== -1) {
-						guildConfig.mods.splice(index, 1);
-						await this.rnet.guilds.update(guildConfig._id, { $set: { mods: guildConfig.mods } });
-						return this.success(message.channel, `Removed ${args[0]} as a moderator.`);
-					}
-				}
-				return this.error(message.channel, `Couldn't find user or role ${args[0]}.`);
-			}
+			if (!user) return this.error(message.channel, `Couldn't find user or role ${args[0]}.`);
 			user = user.user || user;
 		}
 

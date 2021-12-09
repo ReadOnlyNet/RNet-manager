@@ -340,9 +340,9 @@ class Role extends Command {
 		}
 
 		let roles = message.guild.roles.filter(r => member.roles.includes(r.id));
-		let rolenames = roles.filter(r => !r.managed).map(r => r.name);
+		let rolenames = roles.map(r => r.name);
 
-		return member.edit({ roles: roles.filter(r => r.managed).map(r => r.id) }, encodeURIComponent(`Responsible User: ${this.utils.fullName(message.author)}`))
+		return member.edit({ roles: [] }, encodeURIComponent(`Responsible User: ${this.utils.fullName(message.author)}`))
 			.then(() => this.success(message.channel,
 				`Removed the following roles from ${this.utils.fullName(member)}, ${rolenames.join(', ')}`))
 			.catch(err => this.error(message.channel,

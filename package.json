@@ -1,6 +1,6 @@
 {
   "name": "@rnet.cf/manager",
-  "version": "1.1.0",
+  "version": "1.0.10",
   "description": "Fun module for use in RNet.",
   "engineStrict": true,
   "engines": {
@@ -19,5 +19,8 @@
   "dependencies": {
     "@rnet.cf/rnet-core": "^1.0.1",
     "async-each": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0"
   }
 }

@@ -84,10 +84,6 @@ class Purge extends Command {
 	async any({ message, args }) {
 		let count = parseInt(args[0]) > 1000 ? 1000 : parseInt(args[0]);
 
-		if (count === 0) {
-			return this.error(message.channel, `Please choose a number of messages to purge.`);
-		}
-
 		let user = args[1] && isNaN(args[1]) ?
 			this.resolveUser(message.channel.guild, args.slice(1).join(' ')) : null;
 

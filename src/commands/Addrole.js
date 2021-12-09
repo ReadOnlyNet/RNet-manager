@@ -20,13 +20,11 @@ class Addrole extends Command {
 	async execute({ message, args }) {
 		const options = {};
 
-		if (args.length > 1 && ['true', 'yes'].includes(args[args.length - 1].toLowerCase())) {
+		if (['true', 'yes'].includes(args[args.length - 1].toLowerCase()))
 			options.hoist = args.pop();
-		}
 
-		if (args.length > 1 && args[args.length - 1].match(/^#?([a-f\d]{3}){1,2}\b/i)) {
+		if (args.length > 1 && args[args.length - 1].match(/^#?([a-f\d]{3}){1,2}\b/i))
 			options.color = this.utils.hexToInt(args.pop());
-		}
 
 		options.name = args.join(' ');
 

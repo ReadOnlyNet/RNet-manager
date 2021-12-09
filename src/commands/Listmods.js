@@ -47,20 +47,13 @@ class Listmods extends Command {
 		}
 
 		if (guildConfig.mods && guildConfig.mods.length) {
-			let mods = guildConfig.mods
-				// .filter(id => message.channel.guild.members.has(id))
-				.map(id => {
-					const member = message.channel.guild.members.get(id);
-					return member ? member.mention : `${id} (Left server)`;
-				})
-				.join('\n');
-
-			if (mods && mods.length) {
-				embed.fields.push({
-					name: 'Moderators',
-					value: mods,
-				});
-			}
+			embed.fields.push({
+				name: 'Moderators',
+				value: guildConfig.mods
+					.filter(id => message.channel.guild.members.has(id))
+					.map(id => message.channel.guild.members.get(id).mention)
+					.join('\n'),
+			});
 		}
 
 		return this.sendMessage(message.channel, { embed });

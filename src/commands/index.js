@@ -1,6 +1,7 @@
 exports.Addmod = require('./Addmod');
 exports.Addrole = require('./Addrole');
 exports.Announce = require('./Announce');
+exports.Channel = require('./Channel');
 exports.ClearWarnings = require('./ClearWarnings');
 exports.Delmod = require('./Delmod');
 exports.Delrole = require('./Delrole');
@@ -10,6 +11,7 @@ exports.Listmods = require('./Listmods');
 exports.Mentionable = require('./Mentionable');
 exports.Modules = require('./Modules');
 exports.Nick = require('./Nick');
+exports.Permission = require('./Permission');
 exports.Prefix = require('./Prefix');
 exports.Purge = require('./Purge');
 exports.Role = require('./Role');
